@@ -37,7 +37,7 @@ function addSong() {
   songButtonElement.classList.add('song__like');
   
   songButtonElement.addEventListener('click', function (event) {  //вешаем обработчик клика на кнопку-сердечко;
-  console.log(event);  // выведите в консоль объект event
+    event.target.classList.toggle('song__like_active');            //передаём обработчику колбэк, добавляющий и снимающий сердечку нужный класс.
 });
 
   trackContainer.appendChild(artistElement);
