@@ -82,3 +82,16 @@ addButton.addEventListener("click", addSong); //Слушатели
 resetButton.addEventListener("click", resetPlaylist); //Слушатели
 
 renderAdded();
+
+const playListTitles = [
+  'Игорь Тальков. Лучшее',
+  'Музыка категории Б',
+  'Подборка с фестиваля FYRE'
+];
+
+/* можно не сохранять элемент в переменную,
+а сразу вызвать метод addEventListener */
+document.querySelector('.cover__heading').addEventListener('dblclick', function (event) {
+  playListTitles[Math.floor(Math.random() * playListTitles.length)];// дальше только вставить случайный элемент
+  event.target.textContent = playListTitles[Math.floor(Math.random() * playListTitles.length)];
+});
