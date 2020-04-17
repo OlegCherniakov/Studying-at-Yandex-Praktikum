@@ -95,3 +95,9 @@ document.querySelector('.cover__heading').addEventListener('dblclick', function 
   playListTitles[Math.floor(Math.random() * playListTitles.length)];// дальше только вставить случайный элемент
   event.target.textContent = playListTitles[Math.floor(Math.random() * playListTitles.length)];
 });
+
+
+// вешаем слушатель на элемент songsContainer
+songsContainer.addEventListener('click', function (event) {
+  console.log(event);
+});
