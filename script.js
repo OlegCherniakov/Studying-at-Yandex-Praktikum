@@ -102,4 +102,7 @@ document.querySelector('.cover__heading').addEventListener('dblclick', function 
 // вешаем слушатель на элемент songsContainer
 songsContainer.addEventListener('click', function (event) {
   event.target.classList.toggle('song__like_active');
+  if (event.target.classList.contains('song__like')) {
+    event.target.classList.toggle('song__like_active');
+}
 });
