@@ -116,3 +116,6 @@ songsContainer.addEventListener("click", function (event) {
     event.target.classList.toggle("song__like_active");
   }
 });
+
+
+console.log(document.forms);
