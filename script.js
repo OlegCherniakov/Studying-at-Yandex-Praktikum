@@ -69,6 +69,11 @@ function keyHandler(event) {
     //когда нажимаем Enter, то
     addSong(); //срабатывает фенкция addSong
   }
+
+  if (event.key.toLowerCase() === "ё") {
+    //Данный код блокирует ввод буквы Ё в окне
+    event.preventDefault();
+  }
 }
 
 artistInput.addEventListener("keydown", keyHandler); //Слушатели
@@ -86,23 +91,25 @@ resetButton.addEventListener("click", resetPlaylist); //Слушатели
 renderAdded();
 
 const playListTitles = [
-  'Игорь Тальков. Лучшее',
-  'Музыка категории Б',
-  'Подборка с фестиваля FYRE'
+  "Игорь Тальков. Лучшее",
+  "Музыка категории Б",
+  "Подборка с фестиваля FYRE",
 ];
 
 /* можно не сохранять элемент в переменную,
 а сразу вызвать метод addEventListener */
-document.querySelector('.cover__heading').addEventListener('dblclick', function (event) {
-  playListTitles[Math.floor(Math.random() * playListTitles.length)];// дальше только вставить случайный элемент
-  event.target.textContent = playListTitles[Math.floor(Math.random() * playListTitles.length)];
-});
-
+document
+  .querySelector(".cover__heading")
+  .addEventListener("dblclick", function (event) {
+    playListTitles[Math.floor(Math.random() * playListTitles.length)]; // дальше только вставить случайный элемент
+    event.target.textContent =
+      playListTitles[Math.floor(Math.random() * playListTitles.length)];
+  });
 
 // вешаем слушатель на элемент songsContainer
-songsContainer.addEventListener('click', function (event) {
-  event.target.classList.toggle('song__like_active');
-  if (event.target.classList.contains('song__like')) {
-    event.target.classList.toggle('song__like_active');
-}
+songsContainer.addEventListener("click", function (event) {
+  event.target.classList.toggle("song__like_active");
+  if (event.target.classList.contains("song__like")) {
+    event.target.classList.toggle("song__like_active");
+  }
 });
