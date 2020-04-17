@@ -69,7 +69,7 @@ function keyHandler(event) {
     //когда нажимаем Enter, то
     addSong(); //срабатывает фенкция addSong
   }
-/*
+  /*
   if (event.key.toLowerCase() === "ё") {
     //Данный код блокирует ввод буквы Ё в окне
     event.preventDefault();
@@ -97,15 +97,17 @@ const playListTitles = [
   "Подборка с фестиваля FYRE",
 ];
 
-/* можно не сохранять элемент в переменную,
-а сразу вызвать метод addEventListener */
+function doubleClickHandler(event) {
+  event.target.textContent =
+    playListTitles[Math.floor(Math.random() * playListTitles.length)];
+  document
+    .querySelector(".cover__heading")
+    .removeEventListener("dblclick", doubleClickHandler); //Снимаем слушателя. Двойной клик будет один раз
+}
+
 document
   .querySelector(".cover__heading")
-  .addEventListener("dblclick", function (event) {
-    playListTitles[Math.floor(Math.random() * playListTitles.length)]; // дальше только вставить случайный элемент
-    event.target.textContent =
-      playListTitles[Math.floor(Math.random() * playListTitles.length)];
-  });
+  .addEventListener("dblclick", doubleClickHandler); //Слушатель, который запускает по двойному клику function doubleClickHandler
 
 // вешаем слушатель на элемент songsContainer
 songsContainer.addEventListener("click", function (event) {
