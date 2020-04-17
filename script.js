@@ -18,45 +18,70 @@ function renderAdded() {
   }
 }
 
-function addSong() {
-  const artist = document.querySelector(".input__text_artist");
-  const song = document.querySelector(".input__text_song"); // аналогично выберите input с названием песни
-  //Управление содержимым: свойства .innerHTML / .textContent
-  /* вставим разметку с помощью innerHTML
-    Используйте грависы, чтобы разместить её
-    на нескольких строчках */
+// функция принимает два параметра
+function createSong(artistValue, songValue) {
+    // выносим логику создания элемента из функции addSong
+    const trackContainer = document.createElement('div');
+    trackContainer.classList.add('song');
 
-  const trackContainer = document.createElement(
-    "div"
-  ); /* здесь создайте элемент div */
-  trackContainer.classList.add("song"); /* а здесь присвойте ему класс .song */
+    const artistElement = document.createElement('h4');
+    artistElement.classList.add('song__artist');
+    artistElement.textContent = artistValue; // первый параметр используем здесь
 
-  const artistElement = document.createElement("h4"); // создаём элемент h4 и кладём его в переменную
-  artistElement.classList.add("song__artist"); // добавляем класс song__artist
-  artistElement.textContent = artist.value; // добавляем текст
+    const titleElement = document.createElement('p');
+    titleElement.classList.add('song__title');
+    titleElement.textContent = songValue; // а второй здесь
 
-  const titleElement = document.createElement("p");
-  titleElement.classList.add("song__title");
-  titleElement.textContent = song.value;
+    const songButtonElement = document.createElement('button');
+    songButtonElement.classList.add('song__like');
 
-  const songButtonElement = document.createElement("button");
-  songButtonElement.classList.add("song__like");
+    trackContainer.appendChild(artistElement);
+    trackContainer.appendChild(titleElement);
+    trackContainer.appendChild(songButtonElement);
 
-  /*
-  songButtonElement.addEventListener("click", function (event) {
-    //вешаем обработчик клика на кнопку-сердечко;
-    event.target.classList.toggle("song__like_active"); //передаём обработчику колбэк, добавляющий и снимающий сердечку нужный класс.
-  });
-  */
+    // необходимо вернуть элемент трека
+    return trackContainer;
+}
+
+// функция принимает два параметра
+function createSong(artistValue, songValue) {
+  // выносим логику создания элемента из функции addSong
+  const trackContainer = document.createElement('div');
+  trackContainer.classList.add('song');
+
+  const artistElement = document.createElement('h4');
+  artistElement.classList.add('song__artist');
+  artistElement.textContent = artistValue; // первый параметр используем здесь
+
+  const titleElement = document.createElement('p');
+  titleElement.classList.add('song__title');
+  titleElement.textContent = songValue; // а второй здесь
+
+  const songButtonElement = document.createElement('button');
+  songButtonElement.classList.add('song__like');
 
   trackContainer.appendChild(artistElement);
   trackContainer.appendChild(titleElement);
   trackContainer.appendChild(songButtonElement);
 
+  // необходимо вернуть элемент трека
+  return trackContainer;
+}
+
+function addSong(event) {
+  event.preventDefault();
+
+  const artist = document.querySelector('.input__text_artist');
+  const song = document.querySelector('.input__text_song');
+
+  // вызываем функцию createSong, передавай ей аргументы
+  const trackContainer = createSong(artist.value, song.value);
+
+  // дальше ничего не изменилось
   songsContainer.appendChild(trackContainer);
 
-  artist.value = "";
-  song.value = "";
+  artist.value = '';
+  song.value = '';
 
   renderAdded();
 }
