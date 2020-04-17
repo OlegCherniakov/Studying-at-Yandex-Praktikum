@@ -71,8 +71,9 @@ function createSong(artistValue, songValue) {
 function addSong(event) {
   event.preventDefault();
 
-  const artist = document.querySelector('.input__text_artist');
-  const song = document.querySelector('.input__text_song');
+  const form = document.forms.add; // в эту переменную запишите форму
+    const artist = form.elements.artist; //достаньте элемент по имени artist
+const song = form.elements.song; //а этот по имени song
 
   // вызываем функцию createSong, передавай ей аргументы
   const trackContainer = createSong(artist.value, song.value);
