@@ -69,11 +69,12 @@ function keyHandler(event) {
     //когда нажимаем Enter, то
     addSong(); //срабатывает фенкция addSong
   }
-
+/*
   if (event.key.toLowerCase() === "ё") {
     //Данный код блокирует ввод буквы Ё в окне
     event.preventDefault();
   }
+*/
 }
 
 artistInput.addEventListener("keydown", keyHandler); //Слушатели
