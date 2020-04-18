@@ -20,45 +20,45 @@ function renderAdded() {
 
 // функция принимает два параметра
 function createSong(artistValue, songValue) {
-    // выносим логику создания элемента из функции addSong
-    const trackContainer = document.createElement('div');
-    trackContainer.classList.add('song');
+  // выносим логику создания элемента из функции addSong
+  const trackContainer = document.createElement("div");
+  trackContainer.classList.add("song");
 
-    const artistElement = document.createElement('h4');
-    artistElement.classList.add('song__artist');
-    artistElement.textContent = artistValue; // первый параметр используем здесь
+  const artistElement = document.createElement("h4");
+  artistElement.classList.add("song__artist");
+  artistElement.textContent = artistValue; // первый параметр используем здесь
 
-    const titleElement = document.createElement('p');
-    titleElement.classList.add('song__title');
-    titleElement.textContent = songValue; // а второй здесь
+  const titleElement = document.createElement("p");
+  titleElement.classList.add("song__title");
+  titleElement.textContent = songValue; // а второй здесь
 
-    const songButtonElement = document.createElement('button');
-    songButtonElement.classList.add('song__like');
+  const songButtonElement = document.createElement("button");
+  songButtonElement.classList.add("song__like");
 
-    trackContainer.appendChild(artistElement);
-    trackContainer.appendChild(titleElement);
-    trackContainer.appendChild(songButtonElement);
+  trackContainer.appendChild(artistElement);
+  trackContainer.appendChild(titleElement);
+  trackContainer.appendChild(songButtonElement);
 
-    // необходимо вернуть элемент трека
-    return trackContainer;
+  // необходимо вернуть элемент трека
+  return trackContainer;
 }
 
 // функция принимает два параметра
 function createSong(artistValue, songValue) {
   // выносим логику создания элемента из функции addSong
-  const trackContainer = document.createElement('div');
-  trackContainer.classList.add('song');
+  const trackContainer = document.createElement("div");
+  trackContainer.classList.add("song");
 
-  const artistElement = document.createElement('h4');
-  artistElement.classList.add('song__artist');
+  const artistElement = document.createElement("h4");
+  artistElement.classList.add("song__artist");
   artistElement.textContent = artistValue; // первый параметр используем здесь
 
-  const titleElement = document.createElement('p');
-  titleElement.classList.add('song__title');
+  const titleElement = document.createElement("p");
+  titleElement.classList.add("song__title");
   titleElement.textContent = songValue; // а второй здесь
 
-  const songButtonElement = document.createElement('button');
-  songButtonElement.classList.add('song__like');
+  const songButtonElement = document.createElement("button");
+  songButtonElement.classList.add("song__like");
 
   trackContainer.appendChild(artistElement);
   trackContainer.appendChild(titleElement);
@@ -72,8 +72,8 @@ function addSong(event) {
   event.preventDefault();
 
   const form = document.forms.add; // в эту переменную запишите форму
-    const artist = form.elements.artist; //достаньте элемент по имени artist
-const song = form.elements.song; //а этот по имени song
+  const artist = form.elements.artist; //достаньте элемент по имени artist
+  const song = form.elements.song; //а этот по имени song
 
   // вызываем функцию createSong, передавай ей аргументы
   const trackContainer = createSong(artist.value, song.value);
@@ -81,14 +81,16 @@ const song = form.elements.song; //а этот по имени song
   // дальше ничего не изменилось
   songsContainer.appendChild(trackContainer);
 
- document.forms.add.reset();           //обнуление (очистка) форм заполнения после ввода
+  document.forms.add.reset(); //обнуление (очистка) форм заполнения после ввода
 
   renderAdded();
+
+  addButton.setAttribute("disabled", true);
+  addButton.classList.add("input__btn_disabled");
 }
 
 const artistInput = document.querySelector(".input__text_artist"); //Ввод с клавиатуры в поле
 const songInput = document.querySelector(".input__text_song");
-
 
 function resetPlaylist() {
   songsContainer.innerHTML = "";
@@ -127,20 +129,16 @@ songsContainer.addEventListener("click", function (event) {
   }
 });
 
-
-const form = document.forms.add;                         //обработчик изменения формы (события input).
+const form = document.forms.add; //обработчик изменения формы (события input).
 const artist = form.elements.artist;
 const song = form.elements.song;
 
-form.addEventListener('input', function (event) {
+form.addEventListener("input", function (event) {
   if (artist.value.length === 0 || song.value.length === 0) {
-    addButton.setAttribute('disabled', true);
-    addButton.classList.add('input__btn_disabled');
-} else {
-  addButton.removeAttribute('disabled');
-  addButton.classList.remove('input__btn_disabled');
-}
+    addButton.setAttribute("disabled", true);
+    addButton.classList.add("input__btn_disabled");
+  } else {
+    addButton.removeAttribute("disabled");
+    addButton.classList.remove("input__btn_disabled");
+  }
 });
-
-
-//console.log(document.forms);
