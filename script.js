@@ -81,8 +81,7 @@ const song = form.elements.song; //а этот по имени song
   // дальше ничего не изменилось
   songsContainer.appendChild(trackContainer);
 
-  artist.value = '';
-  song.value = '';
+ document.forms.add.reset();           //обнуление (очистка) форм заполнения после ввода
 
   renderAdded();
 }
