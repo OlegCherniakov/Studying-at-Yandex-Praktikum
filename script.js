@@ -128,4 +128,11 @@ songsContainer.addEventListener("click", function (event) {
 });
 
 
+const form = document.forms.add;                         //обработчик изменения формы (события input).
+
+form.addEventListener('input', function (event) {
+    console.log(event)
+});
+
+
 console.log(document.forms);
