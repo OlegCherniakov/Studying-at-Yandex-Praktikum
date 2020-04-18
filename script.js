@@ -89,21 +89,6 @@ const song = form.elements.song; //а этот по имени song
 const artistInput = document.querySelector(".input__text_artist"); //Ввод с клавиатуры в поле
 const songInput = document.querySelector(".input__text_song");
 
-function keyHandler(event) {
-  if (event.key === "Enter") {
-    //когда нажимаем Enter, то
-    addSong(); //срабатывает фенкция addSong
-  }
-  /*
-  if (event.key.toLowerCase() === "ё") {
-    //Данный код блокирует ввод буквы Ё в окне
-    event.preventDefault();
-  }
-*/
-}
-
-artistInput.addEventListener("keydown", keyHandler); //Слушатели
-songInput.addEventListener("keydown", keyHandler); //Слушатели
 
 function resetPlaylist() {
   songsContainer.innerHTML = "";
