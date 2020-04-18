@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <title>Конструктор плейлистов</title>
+    <title>Олег Черняков. Конструктор плейлистов</title>
   </head>
 
   <body>
@@ -26,10 +26,23 @@
         <h3>Добавить песню</h3>
         <div class="input">
           <form name="add">
-            <input type="text" name="song" placeholder="Название" class="input__text input__text_song">
-            <input type="text" name="artist" placeholder="Исполнитель" class="input__text input__text_artist">
-        </form>
-          <button class="input__btn input__btn_add">
+            <input
+              type="text"
+              name="song"
+              placeholder="Название"
+              class="input__text input__text_song"
+            />
+            <input
+              type="text"
+              name="artist"
+              placeholder="Исполнитель"
+              class="input__text input__text_artist"
+            />
+          </form>
+          <button
+            disabled
+            class="input__btn input__btn_add input__btn_disabled"
+          >
             Добавить
           </button>
         </div>

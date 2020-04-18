@@ -129,10 +129,18 @@ songsContainer.addEventListener("click", function (event) {
 
 
 const form = document.forms.add;                         //обработчик изменения формы (события input).
+const artist = form.elements.artist;
+const song = form.elements.song;
 
 form.addEventListener('input', function (event) {
-    console.log(event)
+  if (artist.value.length === 0 || song.value.length === 0) {
+    addButton.setAttribute('disabled', true);
+    addButton.classList.add('input__btn_disabled');
+} else {
+  addButton.removeAttribute('disabled');
+  addButton.classList.remove('input__btn_disabled');
+}
 });
 
 
-console.log(document.forms);
+//console.log(document.forms);
